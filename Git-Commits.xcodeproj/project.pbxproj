@@ -18,6 +18,7 @@
 		D57E3C2B25572EA400566E5E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D57E3C2825572EA400566E5E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D57E3C2C25572EA400566E5E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D57E3C2925572EA400566E5E /* Alamofire.framework */; };
 		D57E3C2D25572EA400566E5E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D57E3C2925572EA400566E5E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D57E3C322557361C00566E5E /* CommitModelsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C312557361B00566E5E /* CommitModelsWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		D57E3C1B25572E8100566E5E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57E3C2825572EA400566E5E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57E3C2925572EA400566E5E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D57E3C312557361B00566E5E /* CommitModelsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitModelsWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				D57E3B632557288E00566E5E /* Git_CommitsApp.swift */,
 				D57E3B652557288E00566E5E /* ContentView.swift */,
+				D57E3C30255735F300566E5E /* Model */,
 				D57E3B672557289000566E5E /* Assets.xcassets */,
 				D57E3B6C2557289000566E5E /* Info.plist */,
 				D57E3B692557289000566E5E /* Preview Content */,
@@ -171,6 +174,14 @@
 				D57E3C0D25572D9800566E5E /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D57E3C30255735F300566E5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D57E3C312557361B00566E5E /* CommitModelsWireframe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 			files = (
 				D57E3B662557288E00566E5E /* ContentView.swift in Sources */,
 				D57E3B642557288E00566E5E /* Git_CommitsApp.swift in Sources */,
+				D57E3C322557361C00566E5E /* CommitModelsWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
