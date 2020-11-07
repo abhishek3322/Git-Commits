@@ -19,6 +19,10 @@
 		D57E3C2C25572EA400566E5E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D57E3C2925572EA400566E5E /* Alamofire.framework */; };
 		D57E3C2D25572EA400566E5E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D57E3C2925572EA400566E5E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D57E3C322557361C00566E5E /* CommitModelsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C312557361B00566E5E /* CommitModelsWireframe.swift */; };
+		D57E3C3E255736C700566E5E /* CommitListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C38255736C700566E5E /* CommitListItem.swift */; };
+		D57E3C3F255736C700566E5E /* CommitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C39255736C700566E5E /* CommitListView.swift */; };
+		D57E3C40255736C700566E5E /* CommitFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C3B255736C700566E5E /* CommitFetcher.swift */; };
+		D57E3C41255736C700566E5E /* CommitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C3D255736C700566E5E /* CommitService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		D57E3C2825572EA400566E5E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57E3C2925572EA400566E5E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57E3C312557361B00566E5E /* CommitModelsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitModelsWireframe.swift; sourceTree = "<group>"; };
+		D57E3C38255736C700566E5E /* CommitListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitListItem.swift; sourceTree = "<group>"; };
+		D57E3C39255736C700566E5E /* CommitListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitListView.swift; sourceTree = "<group>"; };
+		D57E3C3B255736C700566E5E /* CommitFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitFetcher.swift; sourceTree = "<group>"; };
+		D57E3C3D255736C700566E5E /* CommitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,9 @@
 			children = (
 				D57E3B632557288E00566E5E /* Git_CommitsApp.swift */,
 				D57E3B652557288E00566E5E /* ContentView.swift */,
+				D57E3C3A255736C700566E5E /* Fetcher */,
+				D57E3C3C255736C700566E5E /* Service */,
+				D57E3C37255736C700566E5E /* View */,
 				D57E3C30255735F300566E5E /* Model */,
 				D57E3B672557289000566E5E /* Assets.xcassets */,
 				D57E3B6C2557289000566E5E /* Info.plist */,
@@ -182,6 +193,31 @@
 				D57E3C312557361B00566E5E /* CommitModelsWireframe.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D57E3C37255736C700566E5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D57E3C38255736C700566E5E /* CommitListItem.swift */,
+				D57E3C39255736C700566E5E /* CommitListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D57E3C3A255736C700566E5E /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				D57E3C3B255736C700566E5E /* CommitFetcher.swift */,
+			);
+			path = Fetcher;
+			sourceTree = "<group>";
+		};
+		D57E3C3C255736C700566E5E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D57E3C3D255736C700566E5E /* CommitService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,7 +352,11 @@
 			files = (
 				D57E3B662557288E00566E5E /* ContentView.swift in Sources */,
 				D57E3B642557288E00566E5E /* Git_CommitsApp.swift in Sources */,
+				D57E3C3F255736C700566E5E /* CommitListView.swift in Sources */,
+				D57E3C41255736C700566E5E /* CommitService.swift in Sources */,
 				D57E3C322557361C00566E5E /* CommitModelsWireframe.swift in Sources */,
+				D57E3C40255736C700566E5E /* CommitFetcher.swift in Sources */,
+				D57E3C3E255736C700566E5E /* CommitListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
