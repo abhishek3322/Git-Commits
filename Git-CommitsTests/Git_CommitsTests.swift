@@ -15,7 +15,7 @@ class Git_CommitsTests: XCTestCase {
         let expectation = self.expectation(description: "Commits")
 
         var listOfCommits: [Commit]? = nil
-        service.fetchLatest { success in
+        service.fetchLatest(author: "Alamofire", repo: "Alamofire") { success in
             listOfCommits = service.commits
             expectation.fulfill()
         }
