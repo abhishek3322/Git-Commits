@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct CommitListView: View {
+    @EnvironmentObject var service: CommitService
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            List {
+                ForEach (service.commits) { commit in
+                    CommitListItem(commit: commit)
+                }
+            }
+            .navigationBarTitle("Commits", displayMode: .automatic)
+        }
     }
 }
 

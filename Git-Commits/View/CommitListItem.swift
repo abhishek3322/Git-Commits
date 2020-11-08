@@ -6,15 +6,30 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct CommitListItem: View {
+    var commit: Commit
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct CommitListItem_Previews: PreviewProvider {
-    static var previews: some View {
-        CommitListItem()
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                Text( commit.details.committer.name)
+                    .font(.callout)
+                Text(commit.details.message)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                Text(commit.details.committer.updatedOn.timeAgo())
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+            }
+            Spacer()
+            Text(commit.hash)
+                .font(.caption)
+                .padding(5)
+                .background(Color.commitBackground)
+                .foregroundColor(.white)
+                .cornerRadius(5)
+        }
     }
 }
