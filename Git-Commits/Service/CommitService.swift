@@ -17,7 +17,7 @@ class CommitService: ObservableObject {
     }
     
     func fetchLatest() {
-        let request = AF.request("https://api.github.com/repos/abhishek3322/Git-Commits/commits")
+        let request = AF.request("https://api.github.com/repos/Alamofire/Alamofire/commits?since=2020-01-01T0:00:00Z")
         request.response { (response) in
             guard let data = response.data else { return }
             
