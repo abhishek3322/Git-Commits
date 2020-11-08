@@ -9,25 +9,20 @@ import XCTest
 @testable import Git_Commits
 
 class Git_CommitsTests: XCTestCase {
+    
+    func testCommitServiceFetchLatest() {
+        let service = CommitService()
+        let expectation = self.expectation(description: "Commits")
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+        var listOfCommits: [Commit]? = nil
+        service.fetchLatest { success in
+            listOfCommits = service.commits
+            expectation.fulfill()
+        }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        waitForExpectations(timeout: 5) { (error) in
+            XCTAssertNotNil(listOfCommits)
+            XCTAssertTrue(listOfCommits?.count ?? 0 > 25)
         }
     }
-
 }
