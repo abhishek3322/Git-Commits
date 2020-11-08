@@ -12,7 +12,7 @@ struct CommitListItem: View {
     var commit: Commit
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 5) {
                 Text( commit.details.committer.name)
                     .font(.callout)
