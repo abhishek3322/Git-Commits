@@ -11,7 +11,8 @@ import SwiftUI
 struct Git_CommitsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let commitService = CommitService()
+            CommitListView().environmentObject(commitService)
         }
     }
 }
