@@ -12,13 +12,30 @@ struct CommitListView: View {
 
     var body: some View {
         NavigationView{
-            List {
-                ForEach (service.commits) { commit in
-                    CommitListItem(commit: commit)
-                }
+            if service.isFetchingCommits {
+                ProgressView()
             }
-            .navigationBarTitle("Commits", displayMode: .automatic)
+            else {
+                List {
+                    ForEach (service.commits) { commit in
+                        CommitListItem(commit: commit)
+                    }
+                }
+                .navigationBarTitle("Commits", displayMode: .automatic)
+            }
         }
+        .onAppear() {
+            fetchCommitList()
+        }
+    }
+    
+    private func fetchCommitList() {
+        service.fetchLatest(author: "Alamofire", repo: "Alamofire") { success in
+            //can do some UI functions if needed
+        }
+//        service.fetchLatest(author: "abhishek3322", repo: "Git-Commits") { success in
+//            //can do some UI functions if needed
+//        }
     }
 }
 
