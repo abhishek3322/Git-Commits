@@ -33,7 +33,6 @@ struct Author: Decodable {
     var updatedOn: Date
     
     private enum CodingKeys: String, CodingKey {
-        case imageUrl = "avatar_url"
         case updatedOn = "date"
         case name, email
     }

@@ -26,17 +26,21 @@ class CommitService: ObservableObject {
                 return
             }
             
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+            self.handleResponseData(data, completion)
+        }
+    }
+    
+    func handleResponseData(_ data: Data, _ completion: @escaping (Bool) -> Void) {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+        
+        do {
+            let commits = try decoder.decode([Commit].self, from: data)
+            self.commits = commits
+            completion(true)
             
-            do {
-                let commits = try decoder.decode([Commit].self, from: data)
-                self.commits = commits
-                completion(true)
-                
-            }catch {
-                completion(false)
-            }
+        }catch {
+            completion(false)
         }
     }
 }
