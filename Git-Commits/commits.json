@@ -1,0 +1,77 @@
+[{
+    "sha": "9e0328127dfb801cefe8ac53a13c0c90a7770448",
+    "node_id": "MDY6Q29tbWl0MjI0NTgyNTk6OWUwMzI4MTI3ZGZiODAxY2VmZThhYzUzYTEzYzBjOTBhNzc3MDQ0OA==",
+    "commit": {
+        "author": {
+            "name": "Jon Shier",
+            "email": "jon@jonshier.com",
+            "date": "2020-11-04T21:38:08Z"
+        },
+        "committer": {
+            "name": "Jon Shier",
+            "email": "jon@jonshier.com",
+            "date": "2020-11-04T21:38:08Z"
+        },
+        "message": "Version to 5.4.0.",
+        "tree": {
+            "sha": "0d6876cc86d24fddb0a55a72824c8edfd65ea638",
+            "url": "https://api.github.com/repos/Alamofire/Alamofire/git/trees/0d6876cc86d24fddb0a55a72824c8edfd65ea638"
+        },
+        "url": "https://api.github.com/repos/Alamofire/Alamofire/git/commits/9e0328127dfb801cefe8ac53a13c0c90a7770448",
+        "comment_count": 0,
+        "verification": {
+            "verified": false,
+            "reason": "unsigned",
+            "signature": null,
+            "payload": null
+        }
+    },
+    "url": "https://api.github.com/repos/Alamofire/Alamofire/commits/9e0328127dfb801cefe8ac53a13c0c90a7770448",
+    "html_url": "https://github.com/Alamofire/Alamofire/commit/9e0328127dfb801cefe8ac53a13c0c90a7770448",
+    "comments_url": "https://api.github.com/repos/Alamofire/Alamofire/commits/9e0328127dfb801cefe8ac53a13c0c90a7770448/comments",
+    "author": {
+        "login": "jshier",
+        "id": 51020,
+        "node_id": "MDQ6VXNlcjUxMDIw",
+        "avatar_url": "https://avatars0.githubusercontent.com/u/51020?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jshier",
+        "html_url": "https://github.com/jshier",
+        "followers_url": "https://api.github.com/users/jshier/followers",
+        "following_url": "https://api.github.com/users/jshier/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jshier/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jshier/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jshier/subscriptions",
+        "organizations_url": "https://api.github.com/users/jshier/orgs",
+        "repos_url": "https://api.github.com/users/jshier/repos",
+        "events_url": "https://api.github.com/users/jshier/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jshier/received_events",
+        "type": "User",
+        "site_admin": false
+    },
+    "committer": {
+        "login": "jshier",
+        "id": 51020,
+        "node_id": "MDQ6VXNlcjUxMDIw",
+        "avatar_url": "https://avatars0.githubusercontent.com/u/51020?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jshier",
+        "html_url": "https://github.com/jshier",
+        "followers_url": "https://api.github.com/users/jshier/followers",
+        "following_url": "https://api.github.com/users/jshier/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jshier/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jshier/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jshier/subscriptions",
+        "organizations_url": "https://api.github.com/users/jshier/orgs",
+        "repos_url": "https://api.github.com/users/jshier/repos",
+        "events_url": "https://api.github.com/users/jshier/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jshier/received_events",
+        "type": "User",
+        "site_admin": false
+    },
+    "parents": [{
+        "sha": "cbbfc307c7208e2a9f1aa336434a84e0cb094350",
+        "url": "https://api.github.com/repos/Alamofire/Alamofire/commits/cbbfc307c7208e2a9f1aa336434a84e0cb094350",
+        "html_url": "https://github.com/Alamofire/Alamofire/commit/cbbfc307c7208e2a9f1aa336434a84e0cb094350"
+    }]
+}]

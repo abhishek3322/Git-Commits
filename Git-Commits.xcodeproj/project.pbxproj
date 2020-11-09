@@ -23,6 +23,12 @@
 		D57E3C41255736C700566E5E /* CommitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C3D255736C700566E5E /* CommitService.swift */; };
 		D57E3C582557614F00566E5E /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C572557614F00566E5E /* AppStyle.swift */; };
 		D57E3C5E255775A600566E5E /* Extension+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3C5D255775A600566E5E /* Extension+.swift */; };
+		D581C3072559CC3B0010FC74 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581C3032559CC3B0010FC74 /* Mock.swift */; };
+		D581C3082559CC3B0010FC74 /* XCTest+Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581C3042559CC3B0010FC74 /* XCTest+Mocker.swift */; };
+		D581C3092559CC3B0010FC74 /* MockingURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581C3052559CC3B0010FC74 /* MockingURLProtocol.swift */; };
+		D581C30A2559CC3B0010FC74 /* Mocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D581C3062559CC3B0010FC74 /* Mocker.swift */; };
+		D581C3102559CF380010FC74 /* commits.json in Resources */ = {isa = PBXBuildFile; fileRef = D581C30F2559CF380010FC74 /* commits.json */; };
+		D581C3192559D6010010FC74 /* commits.json in Resources */ = {isa = PBXBuildFile; fileRef = D581C30F2559CF380010FC74 /* commits.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +88,11 @@
 		D57E3C3D255736C700566E5E /* CommitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitService.swift; sourceTree = "<group>"; };
 		D57E3C572557614F00566E5E /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		D57E3C5D255775A600566E5E /* Extension+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+.swift"; sourceTree = "<group>"; };
+		D581C3032559CC3B0010FC74 /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		D581C3042559CC3B0010FC74 /* XCTest+Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTest+Mocker.swift"; sourceTree = "<group>"; };
+		D581C3052559CC3B0010FC74 /* MockingURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockingURLProtocol.swift; sourceTree = "<group>"; };
+		D581C3062559CC3B0010FC74 /* Mocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocker.swift; sourceTree = "<group>"; };
+		D581C30F2559CF380010FC74 /* commits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = commits.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +154,7 @@
 				D57E3C30255735F300566E5E /* Model */,
 				D57E3B672557289000566E5E /* Assets.xcassets */,
 				D57E3B6C2557289000566E5E /* Info.plist */,
+				D581C30F2559CF380010FC74 /* commits.json */,
 				D57E3B692557289000566E5E /* Preview Content */,
 			);
 			path = "Git-Commits";
@@ -160,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				D57E3B752557289000566E5E /* Git_CommitsTests.swift */,
+				D581C3022559CC3B0010FC74 /* Mocker */,
 				D57E3B772557289000566E5E /* Info.plist */,
 			);
 			path = "Git-CommitsTests";
@@ -210,6 +223,17 @@
 				D57E3C3D255736C700566E5E /* CommitService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D581C3022559CC3B0010FC74 /* Mocker */ = {
+			isa = PBXGroup;
+			children = (
+				D581C3032559CC3B0010FC74 /* Mock.swift */,
+				D581C3042559CC3B0010FC74 /* XCTest+Mocker.swift */,
+				D581C3052559CC3B0010FC74 /* MockingURLProtocol.swift */,
+				D581C3062559CC3B0010FC74 /* Mocker.swift */,
+			);
+			path = Mocker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +342,7 @@
 			files = (
 				D57E3B6B2557289000566E5E /* Preview Assets.xcassets in Resources */,
 				D57E3B682557289000566E5E /* Assets.xcassets in Resources */,
+				D581C3192559D6010010FC74 /* commits.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D581C3102559CF380010FC74 /* commits.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +382,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D581C30A2559CC3B0010FC74 /* Mocker.swift in Sources */,
+				D581C3092559CC3B0010FC74 /* MockingURLProtocol.swift in Sources */,
+				D581C3082559CC3B0010FC74 /* XCTest+Mocker.swift in Sources */,
 				D57E3B762557289000566E5E /* Git_CommitsTests.swift in Sources */,
+				D581C3072559CC3B0010FC74 /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
