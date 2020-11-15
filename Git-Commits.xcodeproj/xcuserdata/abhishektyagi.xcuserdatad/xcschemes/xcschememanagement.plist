@@ -7,7 +7,25 @@
 		<key>Git-Commits.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D57E3B5F2557288E00566E5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D57E3B702557289000566E5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D57E3B7B2557289000566E5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

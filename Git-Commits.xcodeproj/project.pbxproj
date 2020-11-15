@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D56F4CEB2561909E0016FA42 /* CommitFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56F4CEA2561909E0016FA42 /* CommitFetcher.swift */; };
 		D57E3B642557288E00566E5E /* Git_CommitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E3B632557288E00566E5E /* Git_CommitsApp.swift */; };
 		D57E3B682557289000566E5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D57E3B672557289000566E5E /* Assets.xcassets */; };
 		D57E3B6B2557289000566E5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D57E3B6A2557289000566E5E /* Preview Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D56F4CEA2561909E0016FA42 /* CommitFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitFetcher.swift; sourceTree = "<group>"; };
 		D57E3B602557288E00566E5E /* Git-Commits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Git-Commits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57E3B632557288E00566E5E /* Git_CommitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git_CommitsApp.swift; sourceTree = "<group>"; };
 		D57E3B672557289000566E5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				D57E3C3D255736C700566E5E /* CommitService.swift */,
+				D56F4CEA2561909E0016FA42 /* CommitFetcher.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56F4CEB2561909E0016FA42 /* CommitFetcher.swift in Sources */,
 				D57E3B642557288E00566E5E /* Git_CommitsApp.swift in Sources */,
 				D57E3C3F255736C700566E5E /* CommitListView.swift in Sources */,
 				D57E3C41255736C700566E5E /* CommitService.swift in Sources */,

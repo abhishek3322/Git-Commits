@@ -8,6 +8,10 @@
 import Foundation
 import Alamofire
 
+enum ServerError: Error {
+    case somethingWentWrong
+}
+
 class CommitService: ObservableObject {
     
     let gitUrl = "https://api.github.com/repos/"
@@ -15,32 +19,49 @@ class CommitService: ObservableObject {
 
     @Published var commits: [Commit] = []
     @Published var isFetchingCommits: Bool = false
+    var repoInfo: [String: String] = [:]
     
-    func fetchLatest(author: String, repo: String, completion: @escaping (Bool) -> Void) {
+    var fetcher: CommitFetcher?
+    
+    func fetchLatest(completion: ( (Data?, Error?) -> Void)? = nil) {
+        guard let fetcher = self.fetcher else { return } //Should throw error for better user experience.
+        
         isFetchingCommits = true
-        let request = AF.request("\(gitUrl)\(author)/\(repo)/commits?since=\(sinceTime)")
-        request.response { (response) in
+        fetcher.fetch { data, error in
             self.isFetchingCommits = false
-            guard let data = response.data else {
-                completion(false)
-                return
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else if let data = data {
+                self.handleResponseData(data)
             }
             
-            self.handleResponseData(data, completion)
+            if let completion = completion {
+                completion(data, error)
+            }
         }
     }
     
-    func handleResponseData(_ data: Data, _ completion: @escaping (Bool) -> Void) {
+    func updateCommitFetcher(for repo: String, author: String) {
+        repoInfo = ["name": repo, "author": author]
+        let request = AF.request("\(gitUrl)\(author)/\(repo)/commits?since=\(sinceTime)")
+        fetcher = CommitFetcher(request: request)
+    }
+    
+    func handleResponseData(_ data: Data) {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
         
         do {
             let commits = try decoder.decode([Commit].self, from: data)
             self.commits = commits
-            completion(true)
             
         }catch {
-            completion(false)
+            print("Error")
         }
+    }
+    
+    func validateInformation(author: String, repo: String) -> Bool {
+        return author.count > 3 && repo.count > 3
     }
 }

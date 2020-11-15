@@ -10,40 +10,8 @@ import XCTest
 @testable import Alamofire
 
 class Git_CommitsTests: XCTestCase {
-    
-    func testCommitServiceFetchLatest() {
-        let service = CommitService()
-        let expectation = self.expectation(description: "Commits")
-
-        var listOfCommits: [Commit]? = nil
-        service.fetchLatest(author: "Alamofire", repo: "Alamofire") { success in
-            listOfCommits = service.commits
-            expectation.fulfill()
-        }
-
-        waitForExpectations(timeout: 5) { (error) in
-            XCTAssertNotNil(listOfCommits)
-            XCTAssertTrue(listOfCommits?.count ?? 0 > 25)
-        }
-    }
-    
-    //Mock approach to test your service decoding and assigning the result.
-    
-    func testHandleResponseData() {
-        let service = CommitService()
-        let expectation = self.expectation(description: "Commits")
-
-        var listOfCommits: [Commit]? = nil
-        service.handleResponseData(mockJsonData!) { success in
-            listOfCommits = service.commits
-            expectation.fulfill()
-        }
-
-        waitForExpectations(timeout: 5) { (error) in
-            XCTAssertNotNil(listOfCommits)
-            XCTAssertTrue(listOfCommits?.count ?? 0 == 1)
-        }
-    }
+    private var successMethodCalled = false
+    private var errorMethodCalled = false
     
     private var mockJsonData: Data? {
         // I have stored the json response in this file, which i am using to test the data
@@ -56,38 +24,89 @@ class Git_CommitsTests: XCTestCase {
         return nil
     }
     
-    func testCommitServiceFetchLatest_MockApproach() {
-        let service = MockCommitService()
-        var responseReceived: Bool = false
-        
-        let requestExpectation = self.expectation(description: "Commits")
-        service.fetchLatest(mockJsonData: mockJsonData!) { success in
-            responseReceived = success
-            requestExpectation.fulfill()
-        }
+    var mockRequest: Alamofire.DataRequest {
+        return AF.request("mockUrl")
 
-        waitForExpectations(timeout: 5) { (error) in
-            XCTAssertTrue(responseReceived)
+    }
+
+    //Mock approach to test your service decoding and assigning the result.
+    func testHandleResponseData() {
+        let service = CommitService()
+
+        service.handleResponseData(mockJsonData!)
+
+        XCTAssertNotNil(service.commits)
+        XCTAssertTrue(service.commits.count == 1)
+    }
+    
+    func testServiceFetchLatest_successScenario() {
+        let service = CommitService()
+        let mockCommitFetcher = MockCommitFetcher(request: mockRequest, response: (mockJsonData!, nil))
+        service.fetcher = mockCommitFetcher
+        service.fetchLatest { data, error in
+            XCTAssertTrue(service.commits.count == 1)
+            XCTAssertNotNil(data)
+            XCTAssertNil(error)
         }
+    }
+    
+    func testServiceFetchLatest_errorScenario() {
+        let service = CommitService()
+        let mockCommitFetcher = MockCommitFetcher(request: mockRequest, response: (nil, ServerError.somethingWentWrong))
+        service.fetcher = mockCommitFetcher
+        service.fetchLatest { data, error in
+            XCTAssertNil(data)
+            XCTAssertNotNil(error)
+            XCTAssertTrue(error! as! ServerError == ServerError.somethingWentWrong)
+        }
+    }
+    
+    func testUpdateCommitFetcher_isNotNil() {
+        let service = CommitService()
+
+        service.updateCommitFetcher(for: "repo", author: "author")
+        
+        XCTAssertNotNil(service.fetcher)
+    }
+    
+    func testUpdateCommitFetcher_isNil() {
+        let service = CommitService()
+        XCTAssertNil(service.fetcher)
+    }
+    
+    func testValidateRepoInfo_isValid() {
+        let service = CommitService()
+
+        let isValid = service.validateInformation(author: "repo", repo: "author")
+        
+        XCTAssertTrue(isValid)
+    }
+    
+    func testValidateRepoInfo_isNotvalid() {
+        let service = CommitService()
+       
+        let isValid = service.validateInformation(author: "re", repo: "a")
+        XCTAssertFalse(isValid)
+        
+        let isValid1 = service.validateInformation(author: "", repo: "")
+        XCTAssertFalse(isValid1)
+        
+        let isValid2 = service.validateInformation(author: "repo", repo: "123")
+        XCTAssertFalse(isValid2)
     }
 }
 
-class MockCommitService: ObservableObject {
-    @Published var commits: [Commit] = []
-    
-    let gitUrl = URL(string: "https://api.github.com/repos")!
+class MockCommitFetcher: CommitFetcher {
 
-    func fetchLatest(mockJsonData: Data, completion: @escaping (Bool) -> Void) {
-        let configuration = URLSessionConfiguration.af.default
-        configuration.protocolClasses = [MockingURLProtocol.self] + (configuration.protocolClasses ?? [])
-        let sessionManager = Session(configuration: configuration)
-        let mock = Mock(url: gitUrl, dataType: .json, statusCode: 200, data: [.get: mockJsonData])
-        mock.register()
-        
-        sessionManager
-            .request(gitUrl)
-            .response { (response) in
-                completion(true)
-            }.resume()
+    typealias MockResponse = (Data?, Error?)
+    let mockedResponse: MockResponse
+
+    init(request: Alamofire.DataRequest, response: MockResponse) {
+        mockedResponse = response
+        super.init(request: request)
+    }
+
+    override func fetch(completion: @escaping (Data?, Error?) -> Void) {
+        completion(mockedResponse.0, mockedResponse.1)
     }
 }
